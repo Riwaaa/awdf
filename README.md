@@ -1,9 +1,9 @@
-# 🌸 Prachi's Portfolio
+# 🌸 Riwa's Portfolio
 
 A small, simple portfolio website made with React — just a little pink, a little cute, and a lot of code 💗
 
 ### ✨ About
-I'm Prachi Patoliya, a Computer Engineering student interested in web development, cybersecurity, and building useful projects.
+I'm Riwa Ramani, a Computer Engineering student interested in web development, cybersecurity, and building useful projects.
 
 ### 🛠️ Built With
 - React
@@ -23,4 +23,4 @@ Code, caffeine & questionable debugging decisions ♡
 
 ---
 
-**Made by Prachi Patoliya 💗**
+**Made by Riwa Ramani 💗**

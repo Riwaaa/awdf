@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar({ darkMode, setDarkMode }) {
   return (
     <nav>
-      <h2>Prachi Patoliya</h2>
+      <h2>Riwa Ramani</h2>
 
       <div>
         <Link to="/">Home</Link>

@@ -4,7 +4,7 @@ function Header() {
       <div className="hero-content">
         <span className="hero-label">HELLO, I'M</span>
 
-        <h1>Prachi Patoliya</h1>
+        <h1>Riwa Ramani</h1>
 
         <p>Computer Engineering Student</p>
 
