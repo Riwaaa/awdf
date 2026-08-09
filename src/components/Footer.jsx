@@ -1,8 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <p>© 2026 Riwa Ramani. All rights reserved.</p>
-      <p>Built with React + Vite</p>
+      <p>© 2026 Riwaa Ramani — Built with curiosity & code.</p>
     </footer>
   );
 }

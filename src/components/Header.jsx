@@ -1,20 +1,33 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
-    <header>
+    <section className="hero">
       <div className="hero-content">
-        <span className="hero-label">HELLO, I'M</span>
+        <p className="small-text">HEY, I'M</p>
 
-        <h1>Riwa Ramani</h1>
+        <h1>
+          Riwaa <span>Ramani</span>
+        </h1>
 
-        <p>Computer Engineering Student</p>
+        <h2>Computer Engineering Student & Creative Developer</h2>
+
+        <p className="hero-description">
+          I love creating modern websites, exploring new technologies,
+          and turning simple ideas into useful digital experiences.
+        </p>
 
         <div className="hero-buttons">
-          <a href="/contact" className="hero-btn">
-            Contact Me
-          </a>
+          <Link to="/projects" className="btn primary">
+            Explore My Work
+          </Link>
+
+          <Link to="/contact" className="btn secondary">
+            Let's Talk
+          </Link>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
 

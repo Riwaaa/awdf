@@ -1,103 +1,52 @@
-import { useEffect, useState } from "react";
+const projects = [
+  {
+    title: "Personal Portfolio",
+    description:
+      "A responsive personal portfolio designed to showcase my skills, work, and journey as a developer.",
+    tech: "React • CSS • JavaScript",
+  },
+  {
+    title: "AWDF Practicals",
+    description:
+      "A collection of Advanced Web Development Frameworks practicals covering modern web development concepts.",
+    tech: "HTML • CSS • JavaScript • React",
+  },
+  {
+    title: "Creative Web Design",
+    description:
+      "Experimental web interfaces focused on clean layouts, responsive design, and better user experience.",
+    tech: "UI/UX • CSS • JavaScript",
+  },
+];
 
-function Project() {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
-
-  const fetchRepos = () => {
-    setLoading(true);
-    setError(null);
-
-    fetch("https://api.github.com/users/24dce109-crypto/repos")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch repositories");
-        }
-
-        return response.json();
-      })
-      .then((data) => {
-        setRepos(data);
-      })
-      .catch((err) => {
-        setError(err.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    fetchRepos();
-  }, []);
-
-  const filteredRepos = repos.filter((repo) =>
-    repo.name.toLowerCase().includes(search.toLowerCase())
-  );
-
-  if (loading) {
-    return (
-      <main>
-        <h1>My Projects</h1>
-        <p>Loading projects...</p>
-      </main>
-    );
-  }
-
-  if (error) {
-    return (
-      <main>
-        <h1>My Projects</h1>
-
-        <p>Something went wrong: {error}</p>
-
-        <button onClick={fetchRepos}>
-          Retry
-        </button>
-      </main>
-    );
-  }
-
+function Projects() {
   return (
-    <main>
-      <h1>My Projects</h1>
+    <section className="section">
+      <p className="section-label">SELECTED WORK</p>
 
-      <input
-        type="text"
-        placeholder="Search repositories..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      <h2 className="section-title">Things I've built</h2>
 
-      <div className="project-list">
-        {filteredRepos.map((repo) => (
-          <div className="project-card" key={repo.id}>
-            <h2>{repo.name}</h2>
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <div className="project-card" key={project.title}>
+            <div>
+              <span className="project-number">
+                PROJECT 0{index + 1}
+              </span>
 
-            <p>
-              {repo.description || "No description available."}
-            </p>
+              <h3>{project.title}</h3>
 
-            <p>⭐ {repo.stargazers_count} stars</p>
+              <p>{project.description}</p>
+            </div>
 
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub
-            </a>
+            <span className="project-tech">
+              {project.tech}
+            </span>
           </div>
         ))}
       </div>
-
-      {filteredRepos.length === 0 && (
-        <p>No repositories found.</p>
-      )}
-    </main>
+    </section>
   );
 }
 
-export default Project;
+export default Projects;

@@ -1,6 +1,35 @@
-/* =========================
+/* =========================================================
+   RIWAA — CREATIVE PORTFOLIO
+   Editorial / Minimal / Modern
+   ========================================================= */
+
+:root {
+  --bg: #f7f5f2;
+  --text: #17151a;
+  --muted: #77727c;
+  --line: #ddd8d2;
+
+  --purple: #7957d5;
+  --purple-light: #e9e2ff;
+
+  --card: #ffffff;
+}
+
+.app.dark {
+  --bg: #0e0d11;
+  --text: #f5f2f7;
+  --muted: #9c96a3;
+  --line: #29262e;
+
+  --purple: #ad91ff;
+  --purple-light: #292139;
+
+  --card: #151319;
+}
+
+/* =========================================================
    RESET
-========================= */
+   ========================================================= */
 
 * {
   margin: 0;
@@ -12,327 +41,569 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #fdf2f8;
-  color: #222;
+html,
+body,
+#root {
+  min-height: 100%;
 }
 
-/* =========================
+body {
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================================================
    APP
-========================= */
+   ========================================================= */
 
 .app {
   min-height: 100vh;
-  background: #fdf2f8;
-  color: #222;
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      var(--purple-light),
+      transparent 25%
+    ),
+    var(--bg);
+
+  transition: background 0.3s ease;
 }
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+   ========================================================= */
 
 nav {
-  max-width: 1200px;
-  width: calc(100% - 60px);
+  width: min(1200px, calc(100% - 70px));
 
-  margin: 20px auto;
-  padding: 16px 25px;
+  margin: 0 auto;
+  padding: 30px 0;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: #ffffff;
-
-  border: 1px solid #f1d5e2;
-  border-radius: 8px;
+  border-bottom: 1px solid var(--line);
 }
 
 nav h2 {
-  font-size: 21px;
-  font-weight: 700;
-  color: #222;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+nav h2::after {
+  content: ".";
+  color: var(--purple);
 }
 
 nav div {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 28px;
 }
 
 nav a {
-  color: #444;
-  text-decoration: none;
-  font-size: 15px;
+  color: var(--muted);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: #d9467a;
+  color: var(--purple);
 }
 
+/* Theme */
+
 nav button {
-  margin-left: 5px;
+  padding: 9px 16px;
 
-  padding: 9px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
 
-  background: #d9467a;
-  color: white;
+  background: var(--text);
+  color: var(--bg);
 
-  border: none;
-  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
 
-  cursor: pointer;
-  font-size: 14px;
+  transition: 0.25s ease;
 }
 
 nav button:hover {
-  background: #be3b68;
+  background: var(--purple);
+  color: white;
+  border-color: var(--purple);
+
+  transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+   ========================================================= */
 
 header {
-  max-width: 1000px;
+  width: min(1200px, calc(100% - 70px));
 
-  margin: 55px auto 35px;
-  padding: 75px 25px;
-
-  text-align: center;
-
-  background: #ffffff;
-
-  border: 1px solid #f1d5e2;
-  border-radius: 10px;
-}
-
-.hero-label {
-  display: block;
-
-  margin-bottom: 12px;
-
-  font-size: 14px;
-  color: #888;
-}
-
-header h1 {
-  margin-bottom: 12px;
-
-  font-size: clamp(42px, 6vw, 65px);
-
-  line-height: 1.1;
-
-  color: #222;
-
-  background: none;
-
-  -webkit-text-fill-color: initial;
-}
-
-header p {
-  margin-bottom: 25px;
-
-  font-size: 18px;
-
-  color: #777;
-}
-
-/* =========================
-   HERO BUTTONS
-========================= */
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.hero-btn {
-  display: inline-block;
-
-  padding: 10px 18px;
-
-  border-radius: 6px;
-
-  text-decoration: none;
-
-  font-size: 14px;
-}
-
-.hero-btn.primary {
-  background: #d9467a;
-  color: white;
-}
-
-.hero-btn.primary:hover {
-  background: #be3b68;
-}
-
-.hero-btn.secondary {
-  background: white;
-  color: #333;
-
-  border: 1px solid #d8d8d8;
-}
-
-.hero-btn.secondary:hover {
-  background: #f7f7f7;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-  max-width: 1000px;
+  min-height: 690px;
 
   margin: 0 auto;
 
-  padding: 0 20px;
+  padding: 120px 0 100px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid var(--line);
+
+  overflow: hidden;
 }
 
-/* =========================
+/* Huge background word */
+
+header::after {
+  content: "RIWAA";
+
+  position: absolute;
+
+  right: -20px;
+  bottom: -40px;
+
+  font-size: clamp(150px, 25vw, 360px);
+
+  font-weight: 900;
+
+  line-height: 0.8;
+
+  letter-spacing: -20px;
+
+  color: var(--purple-light);
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* Purple orb */
+
+header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  right: 15%;
+  top: 12%;
+
+  border-radius: 50%;
+
+  background: var(--purple-light);
+
+  filter: blur(5px);
+
+  opacity: 0.8;
+}
+
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 25px;
+
+  color: var(--purple);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.hero-label::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--purple);
+}
+
+header h1 {
+  max-width: 950px;
+
+  margin-bottom: 28px;
+
+  font-size: clamp(65px, 10vw, 135px);
+
+  line-height: 0.86;
+
+  letter-spacing: -8px;
+
+  font-weight: 900;
+
+  color: var(--text);
+}
+
+header p {
+  max-width: 600px;
+
+  color: var(--muted);
+
+  font-size: 18px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 35px;
+}
+
+.hero-btn {
+  display: inline-flex;
+
+  padding: 13px 21px;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--text);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.hero-btn.primary {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.hero-btn.primary:hover {
+  background: var(--purple);
+  border-color: var(--purple);
+
+  color: white;
+
+  transform: translateY(-3px);
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  color: var(--text);
+}
+
+.hero-btn.secondary:hover {
+  background: var(--purple-light);
+
+  border-color: var(--purple);
+
+  color: var(--purple);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  width: min(1200px, calc(100% - 70px));
+
+  margin: 0 auto;
+}
+
+/* =========================================================
    SECTIONS
-========================= */
+   ========================================================= */
+
+/*
+   IMPORTANT:
+   NO CARDS.
+   NO BOXES.
+*/
 
 section {
-  background: #ffffff;
+  padding: 110px 0;
 
-  padding: 30px;
+  margin: 0;
 
-  margin-bottom: 20px;
+  background: transparent;
 
-  border: 1px solid #f1d5e2;
-  border-radius: 8px;
+  border: 0;
+
+  border-bottom: 1px solid var(--line);
+
+  border-radius: 0;
+
+  box-shadow: none;
 }
 
 section h2 {
-  margin-bottom: 13px;
+  color: var(--text);
 
-  font-size: 25px;
+  font-size: clamp(45px, 6vw, 80px);
 
-  color: #222;
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  margin-bottom: 30px;
 }
 
 section p {
+  color: var(--muted);
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-box {
+  max-width: 850px;
+}
+
+.about-box p {
+  margin-bottom: 18px;
+
+  font-size: 20px;
+
   line-height: 1.7;
-
-  color: #666;
 }
 
-/* =========================
-   SKILLS
-========================= */
+.about-box p:first-child {
+  color: var(--text);
 
-ul {
-  list-style: none;
+  font-size: 27px;
 
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 9px;
+  letter-spacing: -0.7px;
 }
 
-li {
-  padding: 8px 13px;
-
-  background: #fce7f3;
-
-  color: #9d174d;
-
-  border: 1px solid #f5c2d8;
-
-  border-radius: 5px;
-
-  font-size: 14px;
-}
-
-/* =========================
-   PORTFOLIO SECTIONS
-========================= */
-
-.portfolio-section {
-  margin-top: 0;
-}
+/* =========================================================
+   SECTION TAG
+   ========================================================= */
 
 .section-tag {
   display: inline-block;
 
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 
-  font-size: 12px;
+  color: var(--purple);
 
-  font-weight: 600;
+  font-size: 11px;
 
-  color: #d9467a;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
 }
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skill-card {
+  position: relative;
+
+  min-height: auto;
+
+  padding: 18px 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  background: transparent;
+
+  border: 0;
+
+  border-bottom: 1px solid var(--line);
+
+  border-radius: 0;
+
+  transition: 0.25s ease;
+}
+
+.skill-card::before {
+  display: none;
+}
+
+.skill-card:hover {
+  padding-left: 15px;
+
+  border-color: var(--purple);
+
+  transform: none;
+}
+
+.skill-card span {
+  color: var(--purple);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.skill-card h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: clamp(24px, 3vw, 40px);
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+/* =========================================================
+   SKILL GRID
+   ========================================================= */
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  column-gap: 80px;
+}
+
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
 
 .portfolio-section > h2 {
-  max-width: 700px;
-
-  margin-bottom: 22px;
-
-  font-size: 27px;
+  max-width: 850px;
 }
-
-/* =========================
-   PORTFOLIO CARDS
-========================= */
 
 .portfolio-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 
-  gap: 15px;
+  gap: 1px;
+
+  background: var(--line);
+
+  border: 1px solid var(--line);
 }
 
 .portfolio-card {
-  padding: 22px;
+  min-height: 300px;
 
-  background: #fffafa;
+  padding: 35px;
 
-  border: 1px solid #f0d9e3;
+  background: var(--bg);
 
-  border-radius: 7px;
+  border: 0;
+
+  border-radius: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition: 0.3s ease;
+}
+
+.portfolio-card:hover {
+  background: var(--purple-light);
 }
 
 .card-number {
-  display: block;
+  color: var(--purple);
 
-  margin-bottom: 22px;
+  font-size: 11px;
 
-  font-size: 12px;
+  font-weight: 800;
 
-  color: #d9467a;
+  letter-spacing: 2px;
 }
 
 .portfolio-card h3 {
-  margin-bottom: 8px;
+  margin: 0 0 12px;
 
-  font-size: 18px;
+  color: var(--text);
 
-  color: #222;
+  font-size: 28px;
+
+  letter-spacing: -1px;
 }
 
 .portfolio-card p {
-  font-size: 14px;
+  max-width: 500px;
 
-  line-height: 1.65;
-
-  color: #666;
+  font-size: 15px;
 }
 
-/* =========================
+/* =========================================================
    APPROACH
-========================= */
+   ========================================================= */
 
 .approach-text {
   max-width: 750px;
 
-  margin-bottom: 22px;
+  margin-bottom: 45px;
+}
+
+.approach-text p {
+  font-size: 20px;
 }
 
 .approach-points {
@@ -340,47 +611,51 @@ li {
 
   grid-template-columns: repeat(4, 1fr);
 
-  gap: 10px;
+  border-top: 1px solid var(--line);
+
+  border-bottom: 1px solid var(--line);
 }
 
 .approach-points div {
-  padding: 15px;
+  padding: 25px 20px;
 
-  background: #fffafa;
+  background: transparent;
 
-  border: 1px solid #f0d9e3;
+  border: 0;
 
-  border-radius: 6px;
+  border-right: 1px solid var(--line);
+
+  border-radius: 0;
+}
+
+.approach-points div:last-child {
+  border-right: 0;
 }
 
 .approach-points strong {
   display: block;
 
-  margin-bottom: 7px;
+  margin-bottom: 12px;
 
-  font-size: 12px;
+  color: var(--purple);
 
-  color: #d9467a;
+  font-size: 11px;
+
+  letter-spacing: 1px;
 }
 
 .approach-points span {
-  font-size: 13px;
+  color: var(--muted);
 
-  color: #555;
+  font-size: 14px;
 }
 
-/* =========================
+/* =========================================================
    EXPLORING
-========================= */
+   ========================================================= */
 
 .exploring {
-  background: #ffffff;
-}
-
-.exploring > p {
-  max-width: 750px;
-
-  margin-bottom: 18px;
+  background: transparent;
 }
 
 .explore-tags {
@@ -388,267 +663,233 @@ li {
 
   flex-wrap: wrap;
 
-  gap: 8px;
+  gap: 10px;
 }
 
 .explore-tags span {
-  padding: 8px 12px;
+  padding: 10px 16px;
 
-  background: #fce7f3;
+  background: var(--purple-light);
 
-  border: 1px solid #f5c2d8;
+  border: 1px solid transparent;
 
-  border-radius: 5px;
+  border-radius: 999px;
 
-  font-size: 13px;
+  color: var(--purple);
 
-  color: #9d174d;
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
 }
 
-/* =========================
+.explore-tags span:hover {
+  border-color: var(--purple);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
    PROJECTS
-========================= */
+   ========================================================= */
 
 .project-list {
   display: grid;
 
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
 
-  gap: 15px;
+  border-top: 1px solid var(--line);
 }
 
 .project-card {
-  padding: 23px;
+  padding: 30px 0;
 
-  background: #ffffff;
+  display: grid;
 
-  border: 1px solid #f1d5e2;
+  grid-template-columns: 35% 65%;
 
-  border-radius: 7px;
+  align-items: center;
+
+  background: transparent;
+
+  border: 0;
+
+  border-bottom: 1px solid var(--line);
+
+  border-radius: 0;
+
+  transition: 0.25s ease;
+}
+
+.project-card:hover {
+  padding-left: 15px;
+
+  background: transparent;
 }
 
 .project-card h2 {
-  margin-bottom: 8px;
+  margin: 0;
 
-  font-size: 20px;
+  font-size: 30px;
+
+  letter-spacing: -1px;
 }
 
 .project-card p {
-  color: #666;
+  max-width: 600px;
 }
 
-/* =========================
-   FORM
-========================= */
+/* =========================================================
+   FORMS
+   ========================================================= */
 
 label {
   display: block;
 
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 
-  font-size: 14px;
+  color: var(--text);
 
-  font-weight: 600;
+  font-size: 13px;
 
-  color: #444;
+  font-weight: 700;
 }
 
 input,
 textarea {
   width: 100%;
 
-  padding: 11px 13px;
+  padding: 15px 0;
 
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 
-  background: #ffffff;
+  background: transparent;
 
-  border: 1px solid #d8d8d8;
+  color: var(--text);
 
-  border-radius: 6px;
+  border: 0;
 
-  color: #222;
+  border-bottom: 1px solid var(--line);
 
-  font-family: Arial, sans-serif;
-
-  font-size: 14px;
+  border-radius: 0;
 
   outline: none;
-}
 
-textarea {
-  min-height: 130px;
-
-  resize: vertical;
+  transition: 0.25s ease;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #d9467a;
+  border-color: var(--purple);
+}
+
+textarea {
+  min-height: 140px;
+
+  resize: vertical;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #999;
+  color: var(--muted);
 }
 
-/* =========================
-   NORMAL BUTTONS
-========================= */
+/* =========================================================
+   BUTTON
+   ========================================================= */
 
 button {
-  background: #d9467a;
+  padding: 12px 20px;
 
-  color: white;
+  border: 0;
 
-  border: none;
+  border-radius: 999px;
 
-  padding: 10px 17px;
+  background: var(--text);
 
-  border-radius: 6px;
+  color: var(--bg);
 
-  cursor: pointer;
+  font-size: 13px;
 
-  font-size: 14px;
+  font-weight: 700;
+
+  transition: 0.25s ease;
 }
 
 button:hover {
-  background: #be3b68;
+  background: var(--purple);
+
+  color: white;
+
+  transform: translateY(-2px);
 }
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+   ========================================================= */
 
 footer {
-  max-width: 1000px;
+  width: min(1200px, calc(100% - 70px));
 
-  margin: 40px auto 0;
+  margin: 0 auto;
 
-  padding: 25px 20px;
+  padding: 45px 0;
 
-  text-align: center;
+  color: var(--muted);
 
-  color: #777;
+  border-top: 0;
 
-  border-top: 1px solid #f1d5e2;
+  text-align: left;
 }
 
 footer p {
-  margin: 5px;
+  margin: 0;
+
+  font-size: 12px;
 }
 
-/* =========================
+/* =========================================================
    DARK MODE
-========================= */
+   ========================================================= */
 
-.app.dark {
-  background: #111111;
-  color: #eeeeee;
+.app.dark header::after {
+  color: var(--purple-light);
 }
 
-.app.dark nav,
-.app.dark header,
-.app.dark section,
-.app.dark .project-card {
-  background: #181818;
-
-  border-color: #333333;
+.app.dark header::before {
+  background: var(--purple-light);
 }
 
-.app.dark nav h2,
-.app.dark header h1,
-.app.dark section h2,
-.app.dark .portfolio-card h3 {
-  color: #ffffff;
+.app.dark .portfolio-card:hover {
+  background: var(--purple-light);
 }
 
-.app.dark nav a {
-  color: #cccccc;
+.app.dark .explore-tags span {
+  background: var(--purple-light);
 }
 
-.app.dark nav a:hover {
-  color: #f472a3;
+.app.dark .hero-btn.secondary:hover {
+  background: var(--purple-light);
 }
 
-.app.dark header p,
-.app.dark section p,
-.app.dark .portfolio-card p,
-.app.dark .project-card p {
-  color: #aaaaaa;
-}
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 
-.app.dark .portfolio-card,
-.app.dark .approach-points div {
-  background: #202020;
-
-  border-color: #333333;
-}
-
-.app.dark .hero-btn.secondary {
-  background: #181818;
-
-  color: #eeeeee;
-
-  border-color: #444444;
-}
-
-.app.dark .explore-tags span,
-.app.dark li {
-  background: #2a2024;
-
-  border-color: #51313d;
-
-  color: #f3a6c1;
-}
-
-.app.dark input,
-.app.dark textarea {
-  background: #202020;
-
-  border-color: #444444;
-
-  color: #ffffff;
-}
-
-.app.dark label {
-  color: #dddddd;
-}
-
-.app.dark footer {
-  color: #888888;
-
-  border-color: #333333;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-  nav {
-    width: calc(100% - 30px);
-
-    padding: 15px 18px;
-  }
-
-  nav div {
-    gap: 12px;
-  }
-
-  nav a {
-    font-size: 13px;
-  }
-
+@media (max-width: 900px) {
   header {
-    margin: 40px auto 30px;
+    min-height: 600px;
 
-    padding: 55px 20px;
+    padding: 90px 0;
   }
 
   header h1 {
-    font-size: 44px;
+    font-size: clamp(60px, 11vw, 100px);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
   .portfolio-grid {
@@ -658,415 +899,304 @@ footer p {
   .approach-points {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 500px) {
-  nav {
-    width: calc(100% - 20px);
+  .approach-points div:nth-child(2) {
+    border-right: 0;
   }
 
-  nav h2 {
-    font-size: 17px;
+  .approach-points div {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav,
+  header,
+  main,
+  footer {
+    width: calc(100% - 40px);
+  }
+
+  nav {
+    padding: 22px 0;
+
+    flex-wrap: wrap;
   }
 
   nav div {
-    gap: 6px;
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 12px;
   }
 
   nav a {
     font-size: 12px;
   }
 
-  nav button {
-    padding: 8px 10px;
-  }
-
   header {
-    padding: 45px 15px;
+    min-height: 580px;
+
+    padding: 75px 0;
   }
 
   header h1 {
-    font-size: 38px;
+    font-size: 58px;
+
+    letter-spacing: -4px;
   }
 
   header p {
     font-size: 16px;
   }
 
-  .hero-buttons {
-    flex-direction: row;
+  header::after {
+    font-size: 110px;
+
+    letter-spacing: -8px;
   }
 
   section {
-    padding: 24px 20px;
+    padding: 80px 0;
+  }
+
+  section h2 {
+    font-size: 45px;
+
+    letter-spacing: -3px;
+  }
+
+  .about-box p:first-child {
+    font-size: 22px;
+  }
+
+  .skill-card h3 {
+    font-size: 27px;
   }
 
   .approach-points {
     grid-template-columns: 1fr;
   }
+
+  .approach-points div,
+  .approach-points div:nth-child(2) {
+    border-right: 0;
+
+    border-bottom: 1px solid var(--line);
+  }
+
+  .approach-points div:last-child {
+    border-bottom: 0;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .hero-btn {
+    width: auto;
+  }
+
+  .portfolio-card {
+    min-height: 250px;
+  }
 }
-/* =========================
-   FINAL CLEAN OVERRIDES
-========================= */
-
-/* HERO - LIGHT */
-header {
-  background: #ffffff !important;
-  color: #222222;
-  border: 1px solid #eeeeee;
-  box-shadow: none;
-}
-
-header h1 {
-  color: #222222 !important;
-  background: none !important;
-  -webkit-text-fill-color: #222222 !important;
-}
-
-header p {
-  color: #666666 !important;
-}
-
-.hero-label {
-  color: #888888 !important;
-}
-
-/* ONLY ONE NORMAL BUTTON */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-}
-
-.hero-btn {
-  display: inline-block;
-
-  padding: 10px 18px;
-
-  background: #222222 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #222222;
-  border-radius: 6px;
-
-  text-decoration: none;
-
-  font-size: 14px;
-}
-
-.hero-btn:hover {
-  background: #444444 !important;
-}
-
-/* REMOVE ANY OLD PRIMARY HERO BUTTON */
-.hero-btn.primary {
-  display: none !important;
-}
-
-/* NAV TOGGLE = NORMAL */
-nav button {
-  background: #222222 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #222222 !important;
-
-  box-shadow: none !important;
-  transform: none !important;
-}
-
-nav button:hover {
-  background: #444444 !important;
-  transform: none !important;
-}
-
-/* =========================
-   DARK MODE
-========================= */
-
-.app.dark {
-  background: #111111 !important;
-  color: #eeeeee !important;
-}
-
-.app.dark header {
-  background: #181818 !important;
-  color: #eeeeee !important;
-
-  border-color: #333333 !important;
-
-  box-shadow: none !important;
-}
-
-.app.dark header h1 {
-  color: #ffffff !important;
-
-  background: none !important;
-
-  -webkit-text-fill-color: #ffffff !important;
-}
-
-.app.dark header p {
-  color: #aaaaaa !important;
-}
-
-.app.dark .hero-label {
-  color: #999999 !important;
-}
-
-.app.dark .hero-btn {
-  background: #ffffff !important;
-  color: #111111 !important;
-
-  border-color: #ffffff !important;
-}
-
-.app.dark .hero-btn:hover {
-  background: #dddddd !important;
-}
-
-/* DARK NAV */
-.app.dark nav {
-  background: #181818 !important;
-  border-color: #333333 !important;
-}
-
-.app.dark nav h2 {
-  color: #ffffff !important;
-}
-
-.app.dark nav a {
-  color: #dddddd !important;
-}
-
-.app.dark nav a:hover {
-  color: #ffffff !important;
-}
-
-.app.dark nav button {
-  background: #222222 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #444444 !important;
-
-  box-shadow: none !important;
-}
-
-.app.dark nav button:hover {
-  background: #333333 !important;
-  color: #ffffff !important;
-}
-
-/* DARK SECTIONS */
-.app.dark section,
-.app.dark .project-card {
-  background: #181818 !important;
-  border-color: #333333 !important;
-}
-
-.app.dark section h2,
-.app.dark .portfolio-card h3,
-.app.dark .project-card h2 {
-  color: #ffffff !important;
-}
-
-.app.dark section p,
-.app.dark .portfolio-card p,
-.app.dark .project-card p {
-  color: #aaaaaa !important;
-}
-/* =========================
-   FINAL LIGHT / DARK FIX
-========================= */
+/* =========================================================
+   FINAL DARK / LIGHT MODE FIX
+   ========================================================= */
 
 /* ---------- LIGHT MODE ---------- */
 
-body {
-  background: #fdf2f8;
-  color: #222;
-}
-
 .app {
-  background: #fdf2f8 !important;
-  color: #222;
+  color: var(--text);
 }
 
-/* Navbar */
-nav {
-  background: #ffffff !important;
-  color: #222222 !important;
-
-  border: 1px solid #f1d5e2 !important;
-  box-shadow: none !important;
+.app header h1,
+.app header h2,
+.app header h3 {
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
 }
 
-nav h2 {
-  color: #222222 !important;
+.app header p {
+  color: var(--muted);
 }
 
-nav a {
-  color: #444444 !important;
+.app nav h2 {
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
 }
 
-nav a:hover {
-  color: #d9467a !important;
+.app nav a {
+  color: var(--muted);
 }
 
-nav button {
-  background: #222222 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #222222 !important;
+.app .hero-btn.primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
 }
 
-/* Hero */
-header {
-  background: #ffffff !important;
-  color: #222222 !important;
-
-  border: 1px solid #eeeeee !important;
-  box-shadow: none !important;
-}
-
-header h1 {
-  color: #222222 !important;
-  background: none !important;
-  -webkit-text-fill-color: #222222 !important;
-}
-
-header p {
-  color: #666666 !important;
-}
-
-.hero-label {
-  color: #888888 !important;
-}
-
-/* Hero button */
-.hero-btn {
-  background: #222222 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #222222 !important;
+.app .hero-btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--text);
 }
 
 
 /* ---------- DARK MODE ---------- */
 
 .app.dark {
-  background: #111111 !important;
-  color: #eeeeee !important;
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      #292139,
+      transparent 28%
+    ),
+    #0e0d11;
+
+  color: #f5f2f7;
 }
 
-.app.dark body {
-  background: #111111 !important;
-}
 
 /* Navbar */
-.app.dark nav {
-  background: #181818 !important;
-  color: #ffffff !important;
-
-  border: 1px solid #333333 !important;
-}
 
 .app.dark nav h2 {
-  color: #ffffff !important;
+  color: #f5f2f7 !important;
+  -webkit-text-fill-color: #f5f2f7 !important;
 }
 
 .app.dark nav a {
-  color: #eeeeee !important;
+  color: #bdb6c7 !important;
 }
 
 .app.dark nav a:hover {
-  color: #ffffff !important;
+  color: #c1a7ff !important;
 }
 
-.app.dark nav button {
-  background: #222222 !important;
-  color: #ffffff !important;
 
-  border: 1px solid #444444 !important;
+/* Hero heading */
+
+.app.dark header h1,
+.app.dark header h2,
+.app.dark header h3 {
+  color: #f8f5fa !important;
+  -webkit-text-fill-color: #f8f5fa !important;
 }
 
-/* Hero */
-.app.dark header {
-  background: #181818 !important;
-  color: #eeeeee !important;
 
-  border: 1px solid #333333 !important;
-}
-
-.app.dark header h1 {
-  color: #ffffff !important;
-  background: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
+/* Hero paragraph */
 
 .app.dark header p {
-  color: #aaaaaa !important;
+  color: #aaa3b3 !important;
 }
+
+
+/* Hero label */
 
 .app.dark .hero-label {
-  color: #999999 !important;
+  color: #b18cff !important;
 }
 
-/* Hero button */
-.app.dark .hero-btn {
-  background: #ffffff !important;
-  color: #111111 !important;
 
-  border: 1px solid #ffffff !important;
+/* Dark mode primary button */
+
+.app.dark .hero-btn.primary {
+  background: #f8f5fa !important;
+  color: #0e0d11 !important;
+
+  border-color: #f8f5fa !important;
 }
 
-/* Sections */
-.app.dark section,
-.app.dark .project-card {
-  background: #181818 !important;
-  color: #eeeeee !important;
 
-  border-color: #333333 !important;
+/* Dark mode secondary button */
+
+.app.dark .hero-btn.secondary {
+  background: transparent !important;
+  color: #f8f5fa !important;
+
+  border-color: #55505c !important;
 }
 
-.app.dark section h2,
-.app.dark .project-card h2,
-.app.dark .portfolio-card h3 {
+
+/* Button hover */
+
+.app.dark .hero-btn.primary:hover {
+  background: #b18cff !important;
   color: #ffffff !important;
+
+  border-color: #b18cff !important;
 }
 
-.app.dark section p,
-.app.dark .project-card p,
-.app.dark .portfolio-card p {
-  color: #aaaaaa !important;
-}
-/* =========================
-   FINAL BACKGROUND FIX
-========================= */
+.app.dark .hero-btn.secondary:hover {
+  background: #292139 !important;
+  color: #b18cff !important;
 
-html,
-body,
-#root {
-  margin: 0;
-  min-height: 100%;
+  border-color: #b18cff !important;
 }
 
-/* Light mode */
-html,
-body {
-  background: #fdf2f8;
+
+/* All sections */
+
+.app.dark section h1,
+.app.dark section h2,
+.app.dark section h3 {
+  color: #f8f5fa !important;
 }
 
-/* Dark mode */
-html:has(.app.dark),
-body:has(.app.dark) {
-  background: #111111 !important;
+.app.dark section p {
+  color: #aaa3b3 !important;
 }
 
-.app {
-  min-height: 100vh;
+
+/* Skills */
+
+.app.dark .skill-card h3 {
+  color: #f8f5fa !important;
 }
 
-/* IMPORTANT:
-   Remove the old padding-top fix */
-.app {
-  padding-top: 0 !important;
+.app.dark .skill-card span {
+  color: #b18cff !important;
+}
+
+
+/* Projects */
+
+.app.dark .portfolio-card h3,
+.app.dark .project-card h2 {
+  color: #f8f5fa !important;
+}
+
+.app.dark .portfolio-card p,
+.app.dark .project-card p {
+  color: #aaa3b3 !important;
+}
+
+
+/* Footer */
+
+.app.dark footer {
+  color: #77717e !important;
+}
+
+
+/* Inputs */
+
+.app.dark input,
+.app.dark textarea {
+  color: #f8f5fa !important;
+  border-color: #39343f !important;
+}
+
+.app.dark input::placeholder,
+.app.dark textarea::placeholder {
+  color: #77717e !important;
 }
