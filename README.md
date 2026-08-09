@@ -1,11 +1,11 @@
-# 🌸 Riwa's Portfolio
+#  Riwa's Portfolio
 
 A small, simple portfolio website made with React — just a little pink, a little cute, and a lot of code 💗
 
-### ✨ About
+### About
 I'm Riwa Ramani, a Computer Engineering student interested in web development, cybersecurity, and building useful projects.
 
-### 🛠️ Built With
+### Built With
 - React
 - JavaScript
 - HTML & CSS
