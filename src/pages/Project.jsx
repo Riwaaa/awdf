@@ -1,50 +1,78 @@
-const projects = [
-  {
-    title: "Personal Portfolio",
-    description:
-      "A responsive personal portfolio designed to showcase my skills, work, and journey as a developer.",
-    tech: "React • CSS • JavaScript",
-  },
-  {
-    title: "AWDF Practicals",
-    description:
-      "A collection of Advanced Web Development Frameworks practicals covering modern web development concepts.",
-    tech: "HTML • CSS • JavaScript • React",
-  },
-  {
-    title: "Creative Web Design",
-    description:
-      "Experimental web interfaces focused on clean layouts, responsive design, and better user experience.",
-    tech: "UI/UX • CSS • JavaScript",
-  },
-];
+import { useEffect, useState } from "react";
 
 function Projects() {
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/Riwaaa/repos")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch GitHub repositories");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setRepos(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   return (
-    <section className="section">
-      <p className="section-label">SELECTED WORK</p>
+    <section className="projects-section">
+      <span className="section-label">GITHUB</span>
 
-      <h2 className="section-title">Things I've built</h2>
+      <h2 className="section-title">My Repositories</h2>
 
-      <div className="projects-grid">
-        {projects.map((project, index) => (
-          <div className="project-card" key={project.title}>
-            <div>
-              <span className="project-number">
-                PROJECT 0{index + 1}
+      {loading && (
+        <p className="loading-message">
+          Loading repositories...
+        </p>
+      )}
+
+      {error && (
+        <p className="error-message">
+          Error: {error}
+        </p>
+      )}
+
+      {!loading && !error && (
+        <div className="projects-grid">
+          {repos.map((repo) => (
+            <div className="project-card" key={repo.id}>
+              <div>
+                <span className="project-number">
+                  GITHUB PROJECT
+                </span>
+
+                <h3>{repo.name}</h3>
+
+                <p>
+                  {repo.description || "No description available."}
+                </p>
+              </div>
+
+              <span className="project-tech">
+                {repo.language || "GitHub"}
               </span>
 
-              <h3>{project.title}</h3>
-
-              <p>{project.description}</p>
+              <a
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Repository →
+              </a>
             </div>
-
-            <span className="project-tech">
-              {project.tech}
-            </span>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
