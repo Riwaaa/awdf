@@ -1,16 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function Navbar({ darkMode, setDarkMode }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const loggedIn = Boolean(localStorage.getItem("token"));
+
+  function logout() {
+    localStorage.removeItem("token");
+    navigate("/login");
+  }
+
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav>
-      <h2>Riwa Ramani</h2>
+      <Link to="/" className="nav-brand">
+        Riwa Ramani
+      </Link>
 
-      <div>
-        <Link to="/">Home</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/contact">Contact</Link>
+      <div className="nav-links">
+        <Link className={isActive("/") ? "active" : ""} to="/">
+          Home
+        </Link>
 
-        <button onClick={() => setDarkMode(!darkMode)}>
+        <Link
+          className={isActive("/task-manager") ? "active" : ""}
+          to="/task-manager"
+        >
+          Task Manager
+        </Link>
+
+        <Link className={isActive("/contact") ? "active" : ""} to="/contact">
+          Contact
+        </Link>
+
+        {!loggedIn ? (
+          <Link
+            className={`nav-login ${isActive("/login") ? "active" : ""}`}
+            to="/login"
+          >
+            Login
+          </Link>
+        ) : (
+          <button className="nav-logout" onClick={logout} type="button">
+            Logout
+          </button>
+        )}
+
+        <button
+          className="theme-button"
+          type="button"
+          onClick={() => setDarkMode(!darkMode)}
+        >
           {darkMode ? "☀️ Light" : "🌙 Dark"}
         </button>
       </div>

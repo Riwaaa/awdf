@@ -1,16 +1,20 @@
 {
   "name": "task-manager-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "AWDF Practicals 4-7 Task Manager API",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^7.6.0",
+    "mongoose": "^8.18.0"
   }
 }

@@ -1200,3 +1200,133 @@ footer p {
 .app.dark textarea::placeholder {
   color: #77717e !important;
 }
+/* AWDF Practicals 5-7: Full-stack task manager + authentication */
+.projects-section, .auth-section { width:min(1200px,calc(100% - 70px)); margin:0 auto; padding:80px 0; min-height:70vh; }
+.section-label { color:var(--purple); font-size:12px; font-weight:800; letter-spacing:2px; }
+.section-title { font-size:clamp(36px,6vw,72px); margin:12px 0 35px; letter-spacing:-3px; }
+.task-form { display:grid; grid-template-columns:2fr 3fr 1fr auto; gap:12px; margin-bottom:35px; }
+.task-form input, .task-form select { padding:14px 16px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--text); }
+.task-form button, .task-actions button, .primary-link { padding:12px 16px; border:0; border-radius:10px; background:var(--purple); color:white; font-weight:700; cursor:pointer; }
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+.project-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px; }
+.project-number, .project-tech { color:var(--purple); font-size:11px; font-weight:800; letter-spacing:1px; }
+.project-card h3 { font-size:24px; margin:8px 0; }.project-card h3.done { text-decoration:line-through; opacity:.6; }
+.project-card p { color:var(--muted); line-height:1.6; }.task-actions { display:flex; gap:10px; margin-top:auto; }
+.task-actions button:last-child { background:transparent; color:var(--text); border:1px solid var(--line); }
+.error-message { color:#d9534f; margin:16px 0; }.loading-message,.status-message { color:var(--muted); margin:16px 0; }
+.auth-form { max-width:520px; grid-template-columns:1fr; }.text-button { border:0; background:transparent; color:var(--purple); cursor:pointer; font-weight:700; }
+@media (max-width:800px){.task-form{grid-template-columns:1fr}.projects-section,.auth-section{width:min(100% - 36px,1200px)}nav{width:min(100% - 36px,1200px)}nav div{gap:12px;flex-wrap:wrap;justify-content:flex-end}}
+
+/* =========================================================
+   NAVIGATION + TASK MANAGER AUTH GATE
+   ========================================================= */
+
+nav .nav-brand {
+  color: var(--text);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+nav .nav-brand:hover {
+  color: var(--text);
+}
+
+nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav .nav-links a.active {
+  color: var(--purple);
+}
+
+nav .nav-links .nav-login {
+  padding: 9px 16px;
+  border: 1px solid var(--purple);
+  border-radius: 999px;
+  color: var(--purple);
+}
+
+nav .nav-links .nav-login:hover,
+nav .nav-links .nav-login.active {
+  background: var(--purple);
+  color: white;
+}
+
+nav .nav-links .nav-logout {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+nav .nav-links .nav-logout:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+nav .nav-links .theme-button {
+  cursor: pointer;
+}
+
+.login-gate-card {
+  max-width: 720px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+}
+
+.login-gate-card h3 {
+  margin: 10px 0 12px;
+  font-size: 28px;
+}
+
+.login-gate-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.gate-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.secondary-link {
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.secondary-link:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.auth-description {
+  color: var(--muted);
+  margin-top: -18px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  nav .nav-links {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
