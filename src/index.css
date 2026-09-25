@@ -1,5 +1,5 @@
 /* =========================================================
-   RIWAA — CREATIVE PORTFOLIO
+   RiwaA — CREATIVE PORTFOLIO
    Editorial / Minimal / Modern
    ========================================================= */
 
@@ -189,7 +189,7 @@ header {
 /* Huge background word */
 
 header::after {
-  content: "RIWAA";
+  content: "RiwaA";
 
   position: absolute;
 

@@ -1,13 +1,13 @@
 function About() {
   return (
     <section className="section" id="about">
-      <p className="section-label">ABOUT RIWAA</p>
+      <p className="section-label">ABOUT Riwa</p>
 
       <h2 className="section-title">Who I am</h2>
 
       <div className="about-box">
         <p>
-          I'm Riwaa Ramani, a Computer Engineering student with an interest
+          I'm Riwa, a Computer Engineering student with an interest
           in web development and creative digital experiences.
         </p>
 

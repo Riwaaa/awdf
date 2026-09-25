@@ -7,7 +7,7 @@ function Header() {
         <p className="small-text">HEY, I'M</p>
 
         <h1>
-          Riwaa <span>Ramani</span>
+          Riwa <span>Ramani</span>
         </h1>
 
         <h2>Computer Engineering Student & Creative Developer</h2>
